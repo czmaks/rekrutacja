@@ -1,55 +1,12 @@
 import React, { useState } from 'react'
 
 const Getter = () => {
-  const [singleSearch, setSingleSearch] = useState('')
   const [multiSearch, setMultiSearch] = useState('')
-  const [fileSearch, setFileSearch] = useState('')
   const type = 'ebook'
-
-  const handleSingleChange = (e) => {
-    setSingleSearch(e.target.value);
-  };
 
   const handleMultiChange = (e) => {
     setMultiSearch(e.target.value);
   };
-
-  const handleFileChange = (e) => {
-    setFileSearch(e.target.files[0]);
-  };
-
-  // const handleSingleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const searchData = singleSearch.replaceAll("\"", "").split(",")
-  //   let url = 'https://itunes.apple.com/search?term='
-  //   searchData.forEach(x => {
-  //     const sp = x.split(" ")
-  //     sp.forEach(y => {
-  //       url = url + y + "+"
-  //     })
-  //   })
-  //   url = url.slice(0, -1) + "&media=" + type
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const filtered = data.results.filter(item => item.trackName===searchData[1])
-  //       filtered.forEach(result => {
-  //         const oriDate = new Date(result.releaseDate)
-  //         const obj = {
-  //           name: result.artistName,
-  //           title: result.trackName,
-  //           curr: result.currency,
-  //           price: result.price,
-  //           date: oriDate.getFullYear()+"-"+oriDate.getMonth()+"-"+oriDate.getDay(),
-
-  //         }
-  //         console.log(obj)
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -121,15 +78,6 @@ const Getter = () => {
 
   return (
     <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-around'}}>
-
-      {/* <form onSubmit={handleSingleSubmit} style={{display: 'flex', flexDirection:'column'}}>
-        <label style={{display: 'flex', flexDirection:'column'}}>
-          Find one record:
-          <input type='text' value={singleSearch} onChange={handleSingleChange} />
-        </label>
-        <button type='submit'>Search</button>
-      </form> */}
-
       <form style={{display: 'flex', flexDirection:'column'}} onSubmit={handleSubmit}>
         <label style={{display: 'flex', flexDirection:'column'}}>
           Find multiple recorde at once:
@@ -137,14 +85,6 @@ const Getter = () => {
         </label>
         <button type='submit'>Search</button>
       </form>
-
-      {/* <form style={{display: 'flex', flexDirection:'column'}}>
-        <label style={{display: 'flex', flexDirection:'column'}}>
-          Find from file:
-          <input type='file' value={fileSearch} onChange={handleFileChange} />
-        </label>
-        <button type='submit'>Search</button>
-      </form> */}
     </div>
   )
 }

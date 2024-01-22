@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float, Date, JSON, ForeignKey, Integer
+from sqlalchemy import Column, String, Float, Date, ForeignKey, Integer
 from sqlalchemy.orm import declarative_base, relationship
 from database import engine
 
